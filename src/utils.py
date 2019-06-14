@@ -35,7 +35,7 @@ def save_model(iteration, experiment, pipeline, model_name, path='./'):
     _ = iteration
     path = os.path.join(path, experiment[pipeline].config.alias(as_string=True) + '_' + str(iteration))
     pipeline = experiment[pipeline].pipeline
-    pipeline.save_model(model_name, path)
+    pipeline.save_model_now(model_name, path)
     return
 
 
@@ -75,11 +75,6 @@ def show_samples(image_rows, p_true=None, p_pred=None, labels=None, figsize=None
                 ax.set_title(labels[k])
     plt.tight_layout()
     plt.show()
-
-
-def get_confusion_matrix(metrics):
-    """Get confusion matrix from metrics."""
-    return metrics._confusion_matrix.sum(axis=0)
 
 
 def show_loss(loss, skip=0, figsize=None):
