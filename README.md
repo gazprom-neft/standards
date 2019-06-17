@@ -4,7 +4,7 @@
 
 * [Dataset annotation standard](./dataset_annotation/)
     * [Segmentation task dataset annotation](./dataset_annotation/segmentation_dataset/segmentation_standard.ipynb)
-* [Model description standard](#./model_description/)
-    * [Full model description examples](./model_description/model_examples/)
-    * [Model criticism](./model_description/model_criticism/model_criticism.ipynb)
-    * [Hyperparameters selection](./model_description/parameters_estimation/)
+* [Model description standard](./model_description/)
+    * [Full model description examples](./model_description)
+    * [Model criticism](./model_description/additional_examples/model_criticism)
+    * [Hyperparameters selection](./model_description/additional_examples/parameters_estimation/)
