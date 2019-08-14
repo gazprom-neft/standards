@@ -84,8 +84,8 @@ def show_loss(loss, skip=0, figsize=None):
     plt.figure(figsize=figsize)
     x = np.arange(skip, len(loss))
     plt.plot(x, loss[skip:])
-    plt.ylabel("Функция потерь")
-    plt.xlabel("Итерация")
+    plt.ylabel("Loss Function")
+    plt.xlabel("Iteration")
     plt.show()
 
 
@@ -95,8 +95,8 @@ def show_histogram(arr, bins=10, figsize=None):
         fogsize = (5, 3)
     plt.figure(figsize=figsize)
     plt.hist(arr, bins=bins)
-    plt.xlabel("Значение")
-    plt.ylabel("Частота")
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
     plt.show()
 
 
@@ -106,8 +106,8 @@ def class_histogram(train, test):
     test_labels, test_counts = np.unique(test.labels, return_counts=True)
     plt.bar(train_labels, test_counts, label="Test")
     plt.bar(test_labels, train_counts, bottom=test_counts, label="Train")
-    plt.xlabel("Категория")
-    plt.ylabel("Частота")
+    plt.xlabel("Category")
+    plt.ylabel("Frequency")
     plt.legend()
     plt.show()
 
@@ -117,8 +117,8 @@ def class_precision(confusion_matrix):
     cfm = confusion_matrix
     plt.bar(np.arange(len(cfm)), cfm.diagonal() / (cfm.diagonal() + np.triu(cfm, 1).sum(axis=1)))
     plt.xticks(np.arange(len(cfm)))
-    plt.xlabel("Категория")
-    plt.ylabel("Точность (precision)")
+    plt.xlabel("Category")
+    plt.ylabel("Precision")
     plt.show()
 
 
