@@ -22,14 +22,6 @@ def get_mse(iteration, experiment, pipeline):
     return mean_squared_error(y_true, y_pred)
 
 
-def get_accuracy(iteration, experiment, pipeline):
-    """ Calculate accuracy."""
-    _ = iteration
-    pipeline = experiment[pipeline].pipeline
-    metrics = pipeline.get_variable('metrics')
-    return metrics.evaluate('accuracy')
-
-
 def save_model(iteration, experiment, pipeline, model_name, path='./'):
     """ Save model to a path."""
     _ = iteration
