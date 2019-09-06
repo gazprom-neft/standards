@@ -13,24 +13,6 @@ from sklearn.metrics import mean_squared_error
 plt.style.use('ggplot')
 
 
-def get_mse(iteration, experiment, pipeline):
-    """ Calculate mean squared error."""
-    _ = iteration
-    pipeline = experiment[pipeline].pipeline
-    y_pred = np.stack(pipeline.get_variable('predictions'))
-    y_true = np.stack(pipeline.get_variable('targets'))
-    return mean_squared_error(y_true, y_pred)
-
-
-def save_model(iteration, experiment, pipeline, model_name, path='./'):
-    """ Save model to a path."""
-    _ = iteration
-    path = os.path.join(path, experiment[pipeline].config.alias(as_string=True) + '_' + str(iteration))
-    pipeline = experiment[pipeline].pipeline
-    pipeline.save_model_now(model_name, path)
-    return
-
-
 def show_samples(image_rows, p_true=None, p_pred=None, labels=None, figsize=None,
                  show_grid=False, row_titles=None):
     """Show images and masks."""
