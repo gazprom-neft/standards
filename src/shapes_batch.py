@@ -31,7 +31,7 @@ def sample_image(size, min_r, max_r, circles, squares, pixel_value):
 class ShapesBatch(ImagesBatch):
     """Contains images with geometrical shapes and masks.
     """
-    def __init__(self, index, preloaded=None):
+    def __init__(self, index, preloaded=None, *args, **kwargs):
         super().__init__(index, preloaded)
 
     @action

@@ -13,32 +13,6 @@ from sklearn.metrics import mean_squared_error
 plt.style.use('ggplot')
 
 
-def get_mse(iteration, experiment, pipeline):
-    """ Calculate mean squared error."""
-    _ = iteration
-    pipeline = experiment[pipeline].pipeline
-    y_pred = np.stack(pipeline.get_variable('predictions'))
-    y_true = np.stack(pipeline.get_variable('targets'))
-    return mean_squared_error(y_true, y_pred)
-
-
-def get_accuracy(iteration, experiment, pipeline):
-    """ Calculate accuracy."""
-    _ = iteration
-    pipeline = experiment[pipeline].pipeline
-    metrics = pipeline.get_variable('metrics')
-    return metrics.evaluate('accuracy')
-
-
-def save_model(iteration, experiment, pipeline, model_name, path='./'):
-    """ Save model to a path."""
-    _ = iteration
-    path = os.path.join(path, experiment[pipeline].config.alias(as_string=True) + '_' + str(iteration))
-    pipeline = experiment[pipeline].pipeline
-    pipeline.save_model_now(model_name, path)
-    return
-
-
 def show_samples(image_rows, p_true=None, p_pred=None, labels=None, figsize=None,
                  show_grid=False, row_titles=None):
     """Show images and masks."""
@@ -84,8 +58,8 @@ def show_loss(loss, skip=0, figsize=None):
     plt.figure(figsize=figsize)
     x = np.arange(skip, len(loss))
     plt.plot(x, loss[skip:])
-    plt.ylabel("Функция потерь")
-    plt.xlabel("Итерация")
+    plt.ylabel("Loss Function")
+    plt.xlabel("Iteration")
     plt.show()
 
 
@@ -95,8 +69,8 @@ def show_histogram(arr, bins=10, figsize=None):
         fogsize = (5, 3)
     plt.figure(figsize=figsize)
     plt.hist(arr, bins=bins)
-    plt.xlabel("Значение")
-    plt.ylabel("Частота")
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
     plt.show()
 
 
@@ -106,8 +80,8 @@ def class_histogram(train, test):
     test_labels, test_counts = np.unique(test.labels, return_counts=True)
     plt.bar(train_labels, test_counts, label="Test")
     plt.bar(test_labels, train_counts, bottom=test_counts, label="Train")
-    plt.xlabel("Категория")
-    plt.ylabel("Частота")
+    plt.xlabel("Category")
+    plt.ylabel("Frequency")
     plt.legend()
     plt.show()
 
@@ -117,8 +91,8 @@ def class_precision(confusion_matrix):
     cfm = confusion_matrix
     plt.bar(np.arange(len(cfm)), cfm.diagonal() / (cfm.diagonal() + np.triu(cfm, 1).sum(axis=1)))
     plt.xticks(np.arange(len(cfm)))
-    plt.xlabel("Категория")
-    plt.ylabel("Точность (precision)")
+    plt.xlabel("Category")
+    plt.ylabel("Precision")
     plt.show()
 
 
