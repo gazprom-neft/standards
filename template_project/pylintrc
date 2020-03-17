@@ -1,0 +1,14 @@
+[FORMAT]
+max-line-length = 120
+max-attributes = 25
+max-args = 15
+max-locals = 30
+docstring-min-length = 3
+# Regular expression matching correct variable names
+# variable names should have 2 or more letters and shouldn't begin or end with an underscore
+# also allowed: one-letter variables and single underscores
+variable-rgx = (([a-z][a-z0-9_]*[a-z0-9])|([a-z_]))$
+
+[MESSAGE CONTROL]
+disable = keyword-arg-before-vararg,
+    too-many-branches,
