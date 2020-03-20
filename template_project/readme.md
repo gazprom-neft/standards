@@ -1,7 +1,8 @@
 # Welcome to Template Project!
 
-Add your project description here
+This Template Project demonstrates standardized directory structure that is recommended to use for all ML projects.
 
+Add your project description here.
 
 ### Project structure
 
