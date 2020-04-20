@@ -12,3 +12,4 @@
     * [Model criticism](./model_description/additional_examples/model_criticism)
     * [Hyperparameters selection](./model_description/additional_examples/parameters_estimation/)
 * [Standardized project structure](./template_project/)
+* [Data versioning standard](./data_versioning/)
