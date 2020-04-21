@@ -14,7 +14,11 @@ This standard describes the architecture of a data registry based on `dvc` and s
 We will consider a multi-server case, assuming that several ML projects can use the same dataset. The registry structure is illustrated below and consists of 3 main parts:
 
 * **Data storage** — a `dvc` storage, containing all the data of the registry. In our example, it will be hosted on a dedicated server, but it can also be deployed in a cloud (e.g. `S3`).
-* **Data registry** — a `git` repository, containing a **Data storage** location along with special `.dvc` files for each dataset tracked. A single copy of this repository should be cloned on each server to be used as a dataset storage for each user project.
+
+* **Data registry** — a special `git` repository, used for data versioning. It contains a **Data storage** location along with special `.dvc` files for each dataset tracked. Each `.dvc` file stores only dataset metadata, such as its sha, and acts as a pointer to the dataset itself in the **Data storage**.
+
+    A single copy of this repository should be cloned on each server to be used as a base data storage for each user project: if a dataset, absent in the **Data registry**, is requested, it is copied from the **Data storage** into a special cache dir, that is not tracked by `git`. This ensures that only one copy of the dataset is stored on each server.
+
 * **User projects**, that use data from the registry. They don't store the data itself but only a link to it in the **Data registry** on the same machine.
 
 ![alt text](data-registry.png)
