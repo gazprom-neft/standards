@@ -31,7 +31,7 @@ A data registry is created by invoking the `dvc init` command inside any `git` r
 
 ```bash
 .
-├── data       # Store your datasets here
+├── datasets   # Store your datasets here
 │   ├── dataset_1
 │   ├── dataset_2
 │   └── ...
@@ -57,9 +57,9 @@ The following steps should be taken in order to add a new dataset to the registr
 1. Copy the dataset to the `data` dir and start tracking it by both `git` and `dvc`:
     ```bash
     # should be executed from the registry root dir
-    cp -r <new_data> ./data
-    dvc add ./data/<new_data>
-    git add ./data/<new_data>.dvc ./data/.gitignore
+    cp -r <new_data> ./datasets
+    dvc add ./datasets/<new_data>
+    git add ./datasets/<new_data>.dvc ./datasets/.gitignore
     git commit -m "<Short dataset description>"
     ```
 1. Push changes to both `git` and `dvc` remotes:
@@ -84,5 +84,5 @@ After that, the data is imported as follows:
 ```bash
 dvc import --rev <registry_branch> \
            https://github.com/<repo_path>.git \
-           data/<my_data> ./data/
+           datasets/<my_data> -o ./datasets/
 ```
