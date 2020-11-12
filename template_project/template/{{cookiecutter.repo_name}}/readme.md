@@ -27,13 +27,13 @@ Main features:
 Please cite our project in your publications if it helps your research.
 
 
-    Smirnov I., Ivanov S. ML project name. 2020.
+    Smirnov I., Ivanov S. Full project name. 2020.
 
 
 ```
 @misc{project_name_2020,
   author       = {I. Smirnov and S. Ivanov},
-  title        = {PROJECT NAME},
+  title        = {Full project name},
   year         = 2020,
   doi          = {IF YOU HAVE ONE},
   url          = {TO ARTICLE OR REPO}

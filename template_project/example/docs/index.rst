@@ -36,18 +36,15 @@ Citing
 ======
 Please cite our project in your publications if it helps your research.
 
-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1041203.svg
-   :target: https://doi.org/10.5281/zenodo.1041203
-
 ::
 
-    Roman Khudorozhkov et al. BatchFlow library for fast ML workflows. 2017. doi:10.5281/zenodo.1041203
+    Smirnov I., Ivanov S. Full project name. 2020.
 
 ::
 
     @misc{project_name_2020,
-      author       = {PUT NAMES HERE},
-      title        = {PROJECT NAME},
+      author       = {I. Smirnov and S. Ivanov},
+      title        = {Full project name},
       year         = 2020,
       doi          = {IF YOU HAVE ONE},
       url          = {TO ARTICLE OR REPO}
