@@ -1,28 +1,28 @@
 # ML Project Template
-cookiecutter template for DS projects
+A Cookiecutter template for ML projects inspired by [Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science).
 
-Inspired by [this repo](https://github.com/drivendata/cookiecutter-data-science)
 
-### Requirements to use the cookiecutter template:
+## Requirements to use the cookiecutter template:
  - Python >= 3.5
  - [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html) >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages:
 
-``` bash
+```bash
 $ pip install cookiecutter
 ```
 
 or
 
-``` bash
+```bash
 $ conda config --add channels conda-forge
 $ conda install cookiecutter
 ```
  
- - dvc >= 0.93 (optional, only if you want to control your data using DVC)
+ - dvc >= 0.93 is optional, only if you want to control your data using DVC.
 
 
-### To start a new project, run:
-```
+## To start a new project
+Just run:
+```bash
 cookiecutter https://github.com/gazprom-neft/ml_project_template
 ```
 
@@ -40,38 +40,41 @@ You will be asked for these fields:
 | lib_dvc_cache_dir_map | `default`                                                     | Just press `Enter` :) This sets some utility values. |
 
 
-
-
-
 GitHub repositories should be created manually, but automatic GitHub repository creation can be added in future
 
 
-### The resulting directory structure
+## The project directory structure
 
 The directory structure of your new project looks like this:
 
 ```
 .
-├── Library submodule         <- SeismicPro, SeismiQB or PetroFlow as a git submodule
-├── datasets                  <- Keep your datasets here
+│
+├── datasets                  <- Keep your datasets here.
 ├── docker_containers
-├── .dockerignore
-├── extra                     <- extra helper utilities that are not project-specific, ex. cookiecutter template updater
+├── notebooks                 <- Development notebooks
+├── overview                  <- Notebooks with overview of main results
+├── src                       <- Project-specific models and utilities
+│   └── Library submodule         <- Libraris to be used as git submodules
+├── tests
+│
+├── utils                     <- extra helper utilities that are not project-specific, ex. cookiecutter template updater
 │   ├── .cookiecutter.json
 │   ├── src
 │   └── update_cookiecutter_template.sh   <- run this script to merge recent changes in cookiecutter template into your project
-├── .git
-├── .gitattributes
-├── .github
+├── .github                   <- GitHub Actions
 │   └── workflows
 │       └── status.yml
+│       └── build_docs.yml
+├── .gitattributes
 ├── .gitignore
-├── notebooks                 <- Development notebooks
-├── overview                  <- Notebooks with overview of main results
+├── .dockerignore
 ├── pylintrc
-├── readme.md                 <- The top-level README for developers using this project.
 ├── requirements.txt
-├── src                       <- Project-specific models and utilities
-└── tests
-
+└── readme.md                 <- The top-level README for developers using this project.
 ```
+
+See also:
+- [Dataset versioning](../../data_versioning) for linking datasets
+- [Model description](../../model_description) for model notebooks
+- [Docker container](../../docker_container) for image building and container running scripts.
