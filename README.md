@@ -13,3 +13,4 @@
     * [Hyperparameters selection](./model_description/additional_examples/parameters_estimation/)
 * [Standardized project structure](./template_project/)
 * [Data versioning standard](./data_versioning/)
+* [Docker container template](./docker_container/)

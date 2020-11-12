@@ -1,0 +1,53 @@
+name: docs
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+    - master
+    paths:
+    - 'docs/**'
+
+  push:
+    paths:
+    - 'docs/**'
+
+jobs:
+
+  doc:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: gazprom-neft/ds-py3:cpu
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+          fetch-depth: 1
+
+    - name: Build docs
+      run: |
+        export LC_ALL="C"
+        pip3 install sphinx
+        pip3 install sphinx-rtd-theme
+        git checkout --orphan gh-pages
+        git reset
+        git clean -fdx
+        git checkout ${{ github.sha }} -- docs src
+        git reset
+        cd docs
+        make html
+
+    - name: Push docs
+      if: github.event_name == 'pull_request'
+      run: |
+        mv docs/_build/html/* .
+        rm -rf docs src
+        touch .nojekyll
+        git config user.email ${{ secrets.GITHUB_DOC_BOT_EMAIL }}
+        git config user.name "Docs auto-build"
+        git add -A .
+        git commit -am "Build docs"
+        git remote add gh_pages https://${{ secrets.GITHUB_DOC_TOKEN }}@github.com/${{ github.repository }}
+        git push -f gh_pages gh-pages

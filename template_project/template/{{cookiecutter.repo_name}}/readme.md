@@ -1,32 +1,41 @@
 # Welcome to {{cookiecutter.project_name}}!
 
-Add your project description here
+<< Describe here the main project idea and purpose in 2-3 lines >>
+
+Main features:
+
+* feature 1
+* feature 2
+* feature 3
 
 
-### Project structure
+## Basic usage
+
+<< Describe here how to use the project with code examples and command-line scripts >>
+
+
+
+## Installation
+
+<< Describe here how to install the project with all required libraries >>
+
+
+
+
+## Citing
+
+Please cite our project in your publications if it helps your research.
+
+
+    Smirnov I., Ivanov S. Full project name. 2020.
+
 
 ```
-{% if cookiecutter.include_library != 'no' %}
-├── {{ cookiecutter.include_library }}         <- {{ cookiecutter.include_library }} as a git submodule {% endif %}
-├── datasets                  <- Keep your datasets here
-├── docker_containers
-├── .dockerignore
-├── extra                     <- extra helper utilities that are not project-specific, ex. cookiecutter template updater
-│   ├── .cookiecutter.json
-│   ├── src
-│   └── update_cookiecutter_template.sh   <- run this script to merge recent changes in cookiecutter template into your project
-├── .git
-├── .gitattributes
-├── .github
-│   └── workflows
-│       └── status.yml
-├── .gitignore
-├── notebooks                 <- Development notebooks
-├── overview                  <- Notebooks with overview of main results
-├── pylintrc
-├── readme.md                 <- The top-level README for developers using this project.
-├── requirements.txt
-├── src                       <- Project-specific models and utilities
-└── tests
-
+@misc{project_name_2020,
+  author       = {I. Smirnov and S. Ivanov},
+  title        = {Full project name},
+  year         = 2020,
+  doi          = {IF YOU HAVE ONE},
+  url          = {TO ARTICLE OR REPO}
+}
 ```
